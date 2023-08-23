@@ -2,8 +2,9 @@ name: Deploy to Docker Hub
 
 on:
   push:
-    branches:
-      - main  # Change this to your main branch name if needed
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   deploy:
@@ -11,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Log in to Docker Hub
         env:
