@@ -21,7 +21,7 @@ jobs:
           docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       - name: Build Docker Image
         run: |
-          docker build --file Dockerfile -t $DOCKER_USERNAME/my-flask-app:${{ github.sha }} .
+          docker build . --file Dockerfile -t $DOCKER_USERNAME/my-flask-app:${{ github.sha }}
       - name: Push Docker Image
         run: |
           docker push $DOCKER_USERNAME/my-flask-app:${{ github.sha }}
